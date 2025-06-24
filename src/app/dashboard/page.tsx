@@ -3,6 +3,7 @@ import Header from '../../components/Header'
 import Sidebar from '../../components/Sidebar'
 import SearchBar from '../../components/SearchBar'
 import Profile from '@/components/Profile'
+import RightGraph from '@/components/RightGraph'
 
 const Dashboard = () => {
     return (
@@ -10,7 +11,7 @@ const Dashboard = () => {
             <Sidebar />
             <div className="flex-1">
                 <div className='md:ml-6'>
-                    <Header firstName="John" lastName="Doe" avatarUrl="/window.svg" />
+                    <Header firstName="John" lastName="Doe" avatarUrl="/images/profile1.jpeg" />
                     <SearchBar />
                 </div>
                 <div className='flex flex-col gap-4'>
@@ -19,10 +20,7 @@ const Dashboard = () => {
                     <div className='bg-indigo-50 rounded-2xl p-4'>
                         <div className="flex gap-4">
                             <Profile />
-                            <div className="bg-white rounded-xl p-4 shadow-sm flex-2">
-                                <h3 className="text-lg font-semibold text-gray-900 mb-2">Right Container</h3>
-                                <p className="text-gray-600">This is the bigger container on the right.</p>
-                            </div>
+                            <RightGraph />
                         </div>
                     </div>
                 </div>

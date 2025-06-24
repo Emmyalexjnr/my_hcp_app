@@ -1,18 +1,30 @@
 'use client'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
+import { faBell, faEnvelope, faUser } from '@fortawesome/free-regular-svg-icons'
+import { faGear, faHouse, faRightFromBracket, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const navLinks = [
+  { name: 'Search', href: '#', icon: (
+    <FontAwesomeIcon icon={faSearch} className='text-gray-500' />
+  ) },
   { name: 'Home', href: '#', icon: (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4-8l2 2m-2-2v8m0 0h-4m4 0h4" /></svg>
+    <FontAwesomeIcon icon={faHouse} className='text-gray-500' />
   ) },
   { name: 'Profile', href: '#', icon: (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5.121 17.804A9 9 0 1112 21a9 9 0 01-6.879-3.196z" /></svg>
+    <FontAwesomeIcon icon={faUser} className='text-gray-500' />
+  ) },
+  { name: 'Messages', href: '#', icon: (
+    <FontAwesomeIcon icon={faEnvelope} className='text-gray-500' />
+  ) },
+  { name: 'Notifications', href: '#', icon: (
+    <FontAwesomeIcon icon={faBell} className='text-gray-500' />
   ) },
   { name: 'Settings', href: '#', icon: (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+    <FontAwesomeIcon icon={faGear} className='text-gray-500' />
   ) },
   { name: 'Logout', href: '#', icon: (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H7a2 2 0 01-2-2V7a2 2 0 012-2h4a2 2 0 012 2v1" /></svg>
+    <FontAwesomeIcon icon={faRightFromBracket} className='text-gray-500' />
   ) },
 ];
 
@@ -52,8 +64,8 @@ const Sidebar: React.FC = () => {
           ${collapsed ? 'w-16' : 'w-48'}
           rounded-lg`}
       >
-        <div className="flex flex-col h-full p-2 pt-12 md:pt-6">
-          <div className={`mb-8 text-2xl font-bold text-gray-800 transition-all duration-200 ${collapsed ? 'text-center text-lg' : ''}`}>{!collapsed ? 'My App' : 'MA'}</div>
+        <div className="flex flex-col h-full p-2 pt-12 md:pt-6 mt-10">
+          {/* <div className={`mb-8 text-2xl font-bold text-gray-800 transition-all duration-200 ${collapsed ? 'text-center text-lg' : ''}`}>{!collapsed ? 'My App' : 'MA'}</div> */}
           <nav className="flex flex-col gap-2">
             {navLinks.map(link => (
               <a

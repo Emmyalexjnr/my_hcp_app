@@ -1,14 +1,11 @@
 "use client"
-import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import React, { useEffect, useRef, useMemo, useState } from 'react';
-import ForceGraph2D from 'react-force-graph-2d';
-import { parseGraphML } from '@/utils/parseGraphML';
 import { useGraphData } from '@/hooks/useGraphData';
 import { GraphCanvasRef, InternalGraphNode } from 'reagraph';
 import { CustomNode } from '@/types/graphml';
 import { ThreeEvent } from '@react-three/fiber';
-import NodeProfileModal from './NodeProfileModal';
+import NodeProfileModal from '@/components/NodeProfileModal';
 // import { GraphCanvas } from 'reagraph';
 
 const GraphCanvas = dynamic(
@@ -16,51 +13,6 @@ const GraphCanvas = dynamic(
     { ssr: false }
 );
 
-const nodes = [
-    {
-        id: "n-1",
-        label: "1",
-        icon: "/images/profile1.jpeg",
-
-    },
-    {
-        id: "n-2",
-        label: "2",
-        icon: "/images/profile1.jpeg"
-    },
-    {
-        id: "n-3",
-        label: "3",
-        icon: "/images/profile1.jpeg"
-    },
-    {
-        id: "n-4",
-        label: "4",
-        icon: "/images/profile1.jpeg"
-    }
-];
-
-
-const edges = [
-    {
-        id: "1->2",
-        source: "n-1",
-        target: "n-2",
-        label: "Edge 1-2"
-    },
-    {
-        id: "1->3",
-        source: "n-1",
-        target: "n-3",
-        label: "Edge 1-3"
-    },
-    {
-        id: "1->4",
-        source: "n-1",
-        target: "n-4",
-        label: "Edge 1-4"
-    }
-];
 
 type RightGraphProps = {
     searchTerm: string;
@@ -98,32 +50,7 @@ const RightGraph: React.FC<RightGraphProps> = ({ searchTerm }) => {
     }
 
 
-    // Filter nodes based on search term
-    const filteredNodes = useMemo(() => {
-        if (!searchTerm.trim()) {
-            return allNodes;
-        }
-
-        const searchLower = searchTerm.toLowerCase();
-        return allNodes.filter(node =>
-            node.label?.toLowerCase().includes(searchLower) ||
-            node.id?.toLowerCase().includes(searchLower)
-        );
-    }, [allNodes, searchTerm]);
-
-    // console.log('Filtered Nodes', filteredNodes);
-
-    // console.log('Filtered Edges', filteredEdges);
-
     const graphRef = useRef<GraphCanvasRef | null>(null);
-
-    const fitView = () => {
-        if (searchedNodes.length > 0) {
-            // Fit view to show all highlighted nodes
-            graphRef.current?.centerGraph(searchedNodes.map(node => node.id));
-            graphRef.current?.zoomIn();
-        }
-    };
 
     const fitItem = (id: string) => {
         graphRef.current?.centerGraph([id]);

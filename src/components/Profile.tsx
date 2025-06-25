@@ -1,6 +1,6 @@
 'use client'
-import { faHandshake, faStar, faUser } from '@fortawesome/free-regular-svg-icons'
-import { faArrowUp, faChartLine, faGraduationCap } from '@fortawesome/free-solid-svg-icons'
+import { faHandshake, faStar } from '@fortawesome/free-regular-svg-icons'
+import { faChartLine, faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 

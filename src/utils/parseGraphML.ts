@@ -1,7 +1,7 @@
 import { CustomEdge, CustomNode, GraphMLEdge, GraphMLNode } from '@/types/graphml';
 import { XMLParser } from 'fast-xml-parser';
 
-const DEFAULT_ICON = '/images/profile1.jpeg';
+// const DEFAULT_ICON = '/images/profile1.jpeg';
 
 interface GraphMLRaw {
     graphml: {

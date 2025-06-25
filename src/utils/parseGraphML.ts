@@ -20,7 +20,7 @@ export const parseGraphML = (xmlString: string) => {
     const json: GraphMLRaw = parser.parse(xmlString);
 
     const graph = json.graphml.graph;
-    const rawNodes = Array.isArray(graph.node) ? graph.node : [graph.node];
+    // const rawNodes = Array.isArray(graph.node) ? graph.node : [graph.node];
     const rawEdges = graph.edge ? Array.isArray(graph.edge) ? graph.edge : [graph.edge] : [];
 
     // console.log('Json', json.graphml.graph);

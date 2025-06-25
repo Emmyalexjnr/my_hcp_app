@@ -9,7 +9,13 @@ const Profile: React.FC = () => {
         <div className='p-5 flex-1 bg-gray-100 rounded-2xl'>
             <div className="bg-white rounded-2xl p-3 shadow-sm flex-1  flex flex-col overflow-hidden">
                 {/* Background cover */}
-                <div className="w-full border border-gray-200 rounded-t-2xl h-48 bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-600 relative">
+                <div className="w-full border border-gray-200 rounded-t-2xl h-48 bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-600 relative"
+                    style={{
+                        backgroundImage: 'url(/images/world.jpg)',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                    }}
+                >
                     {/* Avatar positioned on top of background */}
                     <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2">
                         <div className="relative">

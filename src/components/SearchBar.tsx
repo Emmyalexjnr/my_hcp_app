@@ -2,7 +2,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
-const SearchBar: React.FC = () => {
+type SearchBarProps = {
+    searchTerm: string;
+    setSearchTerm: (term: string) => void;
+}
+
+const SearchBar: React.FC<SearchBarProps> = ({ searchTerm, setSearchTerm }) => {
     return (
         <div className="bg-white  rounded-xl p-4 mt-4 shadow-sm">
             <div className="flex items-center gap-3">
@@ -15,6 +20,8 @@ const SearchBar: React.FC = () => {
                         type="text"
                         placeholder="Search..."
                         className="w-full outline-none bg-transparent text-gray-700"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
                     />
                 </div>
                 <button className="flex items-center justify-between gap-2 border border-gray-300 bg-white hover:bg-gray-200 px-4 py-2 rounded-xl transition-colors min-w-[320px]">

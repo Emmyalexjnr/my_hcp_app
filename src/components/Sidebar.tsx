@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { faBell, faEnvelope, faUser } from '@fortawesome/free-regular-svg-icons'
 import { faGear, faHouse, faRightFromBracket, faSearch } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
 
 const navLinks = [
   { name: 'Search', href: '#', icon: (
@@ -46,14 +47,14 @@ const Sidebar: React.FC = () => {
       </button>
 
       {/* Desktop collapse button */}
+      
       <button
-        className="hidden md:block fixed top-4 left-4 z-30 p-2 bg-gray-200 rounded"
+        className="hidden md:block fixed top-4 left-4 z-30 p-2 px-3 bg-white rounded"
         onClick={() => setCollapsed(!collapsed)}
         aria-label="Collapse sidebar"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19 12H5" />
-        </svg>
+        <Image src="/images/logo.png" alt="Logo" width={40} height={40} />
+        
       </button>
 
       {/* Sidebar */}

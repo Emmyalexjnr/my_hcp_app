@@ -23,19 +23,35 @@ export const parseGraphML = (xmlString: string) => {
     const rawNodes = Array.isArray(graph.node) ? graph.node : [graph.node];
     const rawEdges = graph.edge ? Array.isArray(graph.edge) ? graph.edge : [graph.edge] : [];
 
+    // console.log('Json', json.graphml.graph);
 
+    // console.log('rawNodes', rawNodes.slice(0, 2));
+    // console.log('rawEdges', rawEdges.slice(0, 2));
 
-    const nodes: CustomNode[] = rawNodes.slice(0, 1000).map((node, i) => {
-        const data = Array.isArray(node.data) ? node.data[0] : node.data;
-        const label = data?.['#text'] ?? `Node ${i + 1}`;
+    const slicedNodes = rawNodes.slice(0, 200);
+    const slicedEdges = rawEdges.slice(0, 200);
+
+    const nodes: CustomNode[] = slicedEdges.map((edge) => {
+        const data = Array.isArray(edge.data) ? edge.data[0] : edge.data;
+        const label = data?.['#text'] ?? 'Relation';
         return {
-            id: node.id,
+            id: edge.source,
             label,
-            // icon: DEFAULT_ICON, // You can customize this based on node type if needed
-        };
-    });
+        }
+    })
 
-    const edges: CustomEdge[] = rawEdges.slice(0, 1000).map((edge) => {
+
+    // const nodes: CustomNode[] = slicedNodes.map((node, i) => {
+    //     const data = Array.isArray(node.data) ? node.data[0] : node.data;
+    //     const label = data?.['#text'] ?? `Node ${i + 1}`;
+    //     return {
+    //         id: node.id,
+    //         label,
+    //         // icon: DEFAULT_ICON, // You can customize this based on node type if needed
+    //     };
+    // });
+
+    const edges: CustomEdge[] = slicedEdges.map((edge) => {
         const data = Array.isArray(edge.data) ? edge.data[0] : edge.data;
         const label = data?.['#text'] ?? 'Relation';
         return {
@@ -46,6 +62,6 @@ export const parseGraphML = (xmlString: string) => {
         };
     });
 
-    console.log(nodes[0], edges[0]);
+    console.log(nodes, edges);
     return { nodes, edges };
 }

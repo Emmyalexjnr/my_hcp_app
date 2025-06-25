@@ -28,7 +28,7 @@ export const parseGraphML = (xmlString: string) => {
     // console.log('rawNodes', rawNodes.slice(0, 2));
     // console.log('rawEdges', rawEdges.slice(0, 2));
 
-    const slicedNodes = rawNodes.slice(0, 200);
+    // const slicedNodes = rawNodes.slice(0, 200);
     const slicedEdges = rawEdges.slice(0, 200);
 
     const nodes: CustomNode[] = slicedEdges.map((edge) => {

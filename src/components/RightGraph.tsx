@@ -1,6 +1,6 @@
 "use client"
 import dynamic from 'next/dynamic';
-import React, { useEffect, useRef, useMemo, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useGraphData } from '@/hooks/useGraphData';
 import { GraphCanvasRef, InternalGraphNode } from 'reagraph';
 import { CustomNode } from '@/types/graphml';
@@ -152,7 +152,7 @@ const RightGraph: React.FC<RightGraphProps> = ({ searchTerm }) => {
                 <div>
                     <div className="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
                         <p className="text-sm text-blue-800">
-                            Search results for "{searchTerm}": {searchedNodes.length} nodes found
+                            Search results for {searchTerm}: {searchedNodes.length} nodes found
                         </p>
                     </div>
                     <div className="flex flex-row flex-wrap gap-2">
